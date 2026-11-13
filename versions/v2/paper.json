@@ -1,0 +1,62 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 82773,
+      "matches_public": null,
+      "path": "paper.pdf",
+      "public_sha256": null,
+      "sha256": "9a6bbd4b87f272350065b27f92ef8589b90c55a4aa357ef8c76236747c67ec13"
+    },
+    "source": {
+      "bytes": 14409,
+      "matches_public": null,
+      "path": "manuscript/",
+      "public_sha256": null,
+      "sha256": "b20fcaf33adee2ae534ff9cdb6b1be5e8a92fd02d76b15445f946edfc4c9ce02"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We prove the displayed inequality in MathOverflow question 469781, which compares weighted squared two-by-two minors of an orthonormal pair with squared three-by-three minors, weighted by the largest edge weight of each triple. We prove the inequality by contraction in exterior algebra and a finite threshold decomposition. The proof gives both minimum and maximum bounds, permits signed weights and complex vectors, and extends to arbitrary exterior degrees and several orthogonal lifts. The orthonormal comparison follows from Lyons (2003); Miller and Bistroń (2025) give a direct two-sided proof and settle the linked distance-triangle conjecture.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": "10.5281/zenodo.23931737",
+    "current_version": 2,
+    "doi": "10.5281/zenodo.23931738",
+    "lean_source": {
+      "revision": "c55f6f7c7d7e3cf46b0a7da9efbba687448b29aa",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/c55f6f7c7d7e3cf46b0a7da9efbba687448b29aa/D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "url": "/api/v1/collected-papers/mathoverflow-469781-weighted-orthogonal-minors/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-05T08:03:40.468149389Z",
+    "record": "mathoverflow-469781-weighted-orthogonal-minors",
+    "repository_name": "6aec385cdfa30d689ddd40d5",
+    "source": {
+      "url": "/api/v1/collected-papers/mathoverflow-469781-weighted-orthogonal-minors/files/source?version=2"
+    },
+    "title": "Proof of the weighted-minor inequality in MathOverflow 469781",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-05T08:03:40.468149389Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "mathoverflow-469781-weighted-orthogonal-minors"
+  }
+}

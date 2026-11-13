@@ -1,0 +1,15 @@
+{
+  "id": "mathoverflow-469781-weighted-orthogonal-minors",
+  "revision": 2,
+  "problem_ids": ["mathoverflow-469781-weighted-orthogonal-minors"],
+  "topic": "Two-sided weighted-minor comparisons and exterior-degree extensions",
+  "title": "Proof of the weighted-minor inequality in MathOverflow 469781",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We prove the displayed inequality in MathOverflow question 469781, which compares weighted squared two-by-two minors of an orthonormal pair with squared three-by-three minors, weighted by the largest edge weight of each triple. We prove the inequality by contraction in exterior algebra and a finite threshold decomposition. The proof gives both minimum and maximum bounds, permits signed weights and complex vectors, and extends to arbitrary exterior degrees and several orthogonal lifts. The orthonormal comparison follows from Lyons (2003); Miller and Bistroń (2025) give a direct two-sided proof and settle the linked distance-triangle conjecture.",
+  "summary": "A self-contained contraction proof of the weighted-minor question, with two-sided signed-weight bounds, arbitrary horizontal exterior forms, repeated orthogonal lifts, and the sharp distance exponent; precise prior-proof citations and exact rational and Gaussian-rational finite checks.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/c55f6f7c7d7e3cf46b0a7da9efbba687448b29aa/D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.lean"
+}

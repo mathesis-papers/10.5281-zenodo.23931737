@@ -1,0 +1,338 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ii}{\iota_z}
+\newcommand{\leanfile}{\href{https://github.com/the-omega-institute/trureturing/blob/c55f6f7c7d7e3cf46b0a7da9efbba687448b29aa/D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.lean}{\texttt{WeightedProjectionMinors.lean}}}
+\title{Proof of the weighted-minor inequality in\\MathOverflow 469781}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{3 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the displayed inequality in MathOverflow question 469781 \cite{mo},
+which compares weighted squared
+two-by-two minors of an orthonormal pair with squared three-by-three minors,
+weighted by the largest edge weight of each triple. We prove the inequality
+by contraction in exterior algebra and a finite threshold decomposition.
+The proof gives both minimum and maximum bounds, permits signed weights and
+complex vectors, and extends to arbitrary exterior degrees and several
+orthogonal lifts. The orthonormal comparison follows from Lyons (2003);
+Miller and Bistro\'n (2025) give a direct two-sided proof and settle the
+linked distance-triangle conjecture.
+\end{abstract}
+
+\section{The question and its scope}
+MathOverflow question 469781, posted by \texttt{meler} on 23 April 2024
+\cite{mo}, asks whether the inequality in Theorem~\ref{thm:main} holds for
+an orthonormal triple and a symmetric matrix with strictly positive entries.
+It does. The same question was posted on Mathematics Stack Exchange on
+19 April 2024 \cite{mse}. Only off-diagonal entries occur, so we write
+$a_{ij}=a_{ji}$ for $i\ne j$ and do not impose a diagonal convention.
+
+For $x,y,z\in\R^n$, put
+\[
+ p_{ij}=x_i y_j-x_j y_i,\qquad
+ q_{ijk}=\det\begin{pmatrix}x_i&x_j&x_k\\y_i&y_j&y_k\\z_i&z_j&z_k\end{pmatrix}.
+\]
+\begin{theorem}\label{thm:main}
+Let $n\ge3$, $\|z\|=1$, and $\langle z,x\rangle=\langle z,y\rangle=0$.
+For arbitrary real symmetric off-diagonal weights $a_{ij}$,
+\begin{equation}\label{eq:main}
+ \sum_{i<j}a_{ij}p_{ij}^{\,2}
+ \ \le\ \sum_{i<j<k}\max\{a_{ij},a_{ik},a_{jk}\}\,q_{ijk}^{\,2}.
+\end{equation}
+In particular, this proves the inequality for every real orthonormal triple
+and every positive-entry symmetric matrix.
+\end{theorem}
+
+For the orthonormal case, this is a specialization of Lyons's
+Theorem~6.2 \cite{lyons}: the projection determinantal measures of
+$\operatorname{span}(x,y)$ and $\operatorname{span}(x,y,z)$ are stochastically
+ordered. Their probabilities on pairs and triples are $p_{ij}^2$ and
+$q_{ijk}^2$, respectively. Applying that order to the increasing event
+of containing a pair from $F$ gives the family comparison below.
+The argument below gives the needed comparison
+directly, including its threshold step and weaker vector hypotheses.
+
+A later direct proof is Miller and Bistro\'n \cite{mb1}, Lemma~10,
+equation~(27), first posted on 18 September 2025: it establishes both
+the minimum and maximum comparisons for complex orthonormal triples
+and nonnegative weights. The corresponding locators in their
+4 October 2026 revision \cite{mb4} are Lemma~13 and equation~(34).
+Theorem~2 of \cite{mb1} also proves the distance-triangle conjecture
+mentioned in the posing thread, as discussed below. Our purpose is to give
+the short contraction argument and its exterior-degree extensions.
+
+\section{Contraction and pair families}
+Equip the exterior powers of $\R^n$ with the inner product for which
+$e_{i_1}\wedge\cdots\wedge e_{i_r}$, $i_1<\cdots<i_r$, are orthonormal.
+Write $L_z v=z\wedge v$ and let $\ii=L_z^*$ denote contraction.
+Choose an orthonormal basis with first vector $z$. Every exterior form $b$
+has a unique orthogonal decomposition
+\[
+ b=z\wedge c+d,\qquad c,d\in\Lambda(z^\perp).
+\]
+Here $\ii b=c$, so $\|\ii b\|\le\|b\|$.
+For $u=x\wedge y$ and $b=z\wedge u$, the hypotheses of
+Theorem~\ref{thm:main} give
+\begin{equation}\label{eq:recover}
+ \ii b=u,\qquad
+ \|b\|^2=\|u\|^2=\sum_{i<j}p_{ij}^2=\sum_{i<j<k}q_{ijk}^2.
+\end{equation}
+Indeed, $u\in\Lambda^2(z^\perp)$, and $z\wedge u=x\wedge y\wedge z$.
+In coordinates the first identity is
+$\sum_k z_k q_{kij}=p_{ij}$, with $q$ extended as an alternating array.
+
+For a family $F$ of unordered pairs from $[n]=\{1,\ldots,n\}$, define
+\[
+ N(F)=\{T\subseteq[n]: |T|=3\text{ and some }S\in F\text{ satisfies }S\subset T\}.
+\]
+Let $P_F$ and $P_{N(F)}$ be the orthogonal coordinate projections onto
+these pairs and triples.
+
+\begin{lemma}\label{lem:family}
+Under the vector hypotheses of Theorem~\ref{thm:main}, every pair family satisfies
+\begin{equation}\label{eq:family}
+ \sum_{\{i,j\}\in F,\ i<j}p_{ij}^2
+ \ \le\ \sum_{\{i,j,k\}\in N(F),\ i<j<k}q_{ijk}^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The coefficient of $e_i\wedge e_j$ in $\ii b$ uses only coefficients
+$q_{kij}$. If $\{i,j\}\in F$, every triple contributing to that coefficient
+belongs to $N(F)$. Consequently
+\[
+ P_F\ii b=P_F\ii P_{N(F)}b.
+\]
+Both an orthogonal projection and contraction by a unit vector have norm
+at most one. Thus, using \eqref{eq:recover},
+\[
+ \|P_Fu\|=\|P_F\ii P_{N(F)}b\|
+ \le\|\ii P_{N(F)}b\|\le\|P_{N(F)}b\|.
+\]
+Squaring gives \eqref{eq:family}. No summation over ordered tuples is used:
+each pair and each triple occurs once.
+\end{proof}
+
+\section{From families to weights}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+First suppose $a_{ij}\ge0$. List their distinct positive values as
+$0<t_1<\cdots<t_s$, and set $t_0=0$. For each level put
+$F_\ell=\{\{i,j\}:a_{ij}\ge t_\ell\}$. Then
+\[
+ a_{ij}=\sum_{\ell=1}^s(t_\ell-t_{\ell-1})
+                 \mathbf1_{\{i,j\}\in F_\ell}.
+\]
+Similarly, for $T=\{i,j,k\}$,
+\[
+ \max\{a_{ij},a_{ik},a_{jk}\}
+ =\sum_{\ell=1}^s(t_\ell-t_{\ell-1})\mathbf1_{T\in N(F_\ell)}.
+\]
+Multiply Lemma~\ref{lem:family} for $F_\ell$ by
+$t_\ell-t_{\ell-1}\ge0$ and sum over $\ell$. These two identities give
+\eqref{eq:main}. If all weights vanish, both sides vanish and the level
+sum is empty.
+
+For general real weights, let $m=\min_{i<j}a_{ij}$ and apply the result to
+$a'_{ij}=a_{ij}-m\ge0$. The triple maximum also decreases by $m$.
+The two sides of \eqref{eq:main} therefore each decrease by the same
+quantity $m\|u\|^2$, by \eqref{eq:recover}. Cancelling it proves the assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:complex}
+Theorem~\ref{thm:main} holds for $x,y,z\in\C^n$, with Hermitian
+orthogonality and squared absolute values of the minors.
+\end{corollary}
+\begin{proof}
+Use the Hermitian inner product on exterior powers. The orthogonal
+decomposition $b=z\wedge c+d$ and the contraction bound are unchanged;
+the coordinate contraction is now $\sum_k\overline{z_k}q_{kij}$.
+Projection locality is identical. Lemma~\ref{lem:family}, the level sums,
+and the constant shift consequently hold with absolute squares.
+\end{proof}
+
+\begin{corollary}[Two-sided comparison]\label{cor:twosided}
+Under the hypotheses of Theorem~\ref{thm:main}, or its complex version,
+\[
+ \sum_{i<j<k}\min\{a_{ij},a_{ik},a_{jk}\}|q_{ijk}|^2
+ \ \le\ \sum_{i<j}a_{ij}|p_{ij}|^2
+ \ \le\ \sum_{i<j<k}\max\{a_{ij},a_{ik},a_{jk}\}|q_{ijk}|^2.
+\]
+\end{corollary}
+\begin{proof}
+Apply the upper bound to $-a_{ij}$ and use
+$\max\{-a_{ij},-a_{ik},-a_{jk}\}=-\min\{a_{ij},a_{ik},a_{jk}\}$.
+This recovers the two-sided inequality of \cite[Lemma~10]{mb1}
+and extends it to signed weights and the weaker vector hypotheses.
+\end{proof}
+
+\section{All exterior degrees and repeated lifts}
+Write $\binom{[n]}k$ for the $k$-element subsets of $[n]$; coefficients
+of exterior forms always use increasing indices.
+\begin{corollary}\label{cor:degrees}
+Let $\mathbb K=\R$ or $\C$, let $1\le k$, $1\le r$, and $k+r\le n$.
+Let $z_1,\ldots,z_r$ be orthonormal, set
+$V=\operatorname{span}(z_1,\ldots,z_r)^\perp$, and take any
+$u\in\Lambda^k V$, not necessarily decomposable. Put
+$b=z_r\wedge\cdots\wedge z_1\wedge u$.
+For every real array $(a_S)_{S\in\binom{[n]}k}$,
+\begin{equation}\label{eq:degrees}
+ \sum_{T\in\binom{[n]}{k+r}}\left(\min_{\substack{S\subset T\\|S|=k}}a_S\right)|b_T|^2
+ \ \le\ \sum_{S\in\binom{[n]}k}a_S|u_S|^2
+ \ \le\ \sum_{T\in\binom{[n]}{k+r}}\left(\max_{\substack{S\subset T\\|S|=k}}a_S\right)|b_T|^2.
+\end{equation}
+\end{corollary}
+\begin{proof}
+First take $r=1$, $z=z_1$. The decomposition used above works in every
+degree: $\iota_z(z\wedge u)=u$ and $\|z\wedge u\|=\|u\|$ for
+$u\in\Lambda^k(z^\perp)$. For any family $F\subseteq\binom{[n]}k$,
+let $N(F)$ consist of the $(k+1)$-sets containing a member of $F$.
+A coefficient of $\iota_z b$ at $S$ uses only coefficients $b_T$ with
+$S\subset T$, so the same projection identity gives
+$\sum_{S\in F}|u_S|^2\le\sum_{T\in N(F)}|b_T|^2$.
+The threshold argument and equal-mass shift prove the upper bound for
+real weights, and negation proves the lower bound.
+
+For $r>1$ apply this one-step result successively while adjoining
+$z_1,\ldots,z_r$. Each intermediate form is perpendicular in every
+factor to the next vector, by orthogonality. Iterating the maximum
+over subsets gives precisely $\max_{S\subset T,\,|S|=k}a_S$; iterating
+the minimum gives the analogous minimum. This proves \eqref{eq:degrees}.
+\end{proof}
+
+\begin{corollary}[Constant weights and the three-dimensional case]\label{cor:sharp}
+Constant weights give equality in \eqref{eq:degrees}.
+The coefficient one in its nonnegative-weight upper bound is sharp.
+For an orthonormal triple in dimension three, the original inequality
+is the elementary bound in the posing questions.
+\end{corollary}
+\begin{proof}
+Orthogonal lifts preserve the norm, so both total masses are equal.
+Taking $u=e_1\wedge\cdots\wedge e_k$, $z_j=e_{k+j}$ and constant
+positive weights gives a nonzero equality example. When $n=3$ and
+$x,y,z$ are orthonormal, $|q_{123}|^2=\sum_{i<j}|p_{ij}|^2=1$,
+and bounding each weight by the single triple maximum is the proof
+already given in \cite{mo,mse}.
+\end{proof}
+
+\section{Coverage and verification}
+The comment thread on Mathematics Stack Exchange relates the minors
+question to the triangle inequality for weighted exterior-product distances
+\cite{mse}. That larger question is formulated as Conjecture~2.1 in the
+2023 version of Bistro\'n et al.\ \cite{distances}. It has a later full proof:
+Miller and Bistro\'n \cite[Theorem~2]{mb1} prove that, for every finite
+distance matrix $(d_{ij})$ and $p\ge2$,
+\[
+ D_p(x,y)=\left(\sum_{i<j}d_{ij}^{\,p}|x_i y_j-x_j y_i|^2\right)^{1/p}
+\]
+is a distance on complex projective space, with unit representatives $x,y$.
+The conjecture is the $p=2$ instance. This is Theorem~1 in \cite{mb4}.
+The complete distance theorem is cited here, while the written proofs above
+establish the exterior comparisons. In the $p=2$ specialization their
+weights are $a_{ij}=d_{ij}^2$.
+Table~\ref{tab:coverage} records the source items and their mathematical scope.
+
+\begin{corollary}[Sharp exponent for the linked distance]\label{cor:exponent}
+For every $n\ge2$ and every distance matrix, $D_p$ fails the triangle
+inequality when $0<p<2$. For constant off-diagonal distances,
+$D_p$ is a distance for every $p\ge2$.
+\end{corollary}
+\begin{proof}
+Take $x=\cos\theta\,e_1+\sin\theta\,e_2$,
+$y=\cos\theta\,e_1-\sin\theta\,e_2$, and $z=e_1$.
+For $0<\theta<\pi/2$, their three distances are
+$d_{12}\sin^{2/p}(2\theta)$ and twice $d_{12}\sin^{2/p}\theta$.
+The triangle inequality would require
+$\cos\theta\le2^{p/2-1}$, which fails for sufficiently small positive
+$\theta$ if $p<2$. This is the obstruction in \cite[Remark~4]{mb1,mb4}.
+If all $d_{ij}=c>0$, the Gram identity gives
+$D_p(x,y)=c(\|xx^*-yy^*\|_{\mathrm{HS}}/\sqrt2)^{2/p}$.
+The Hilbert--Schmidt norm obeys the triangle inequality, and
+$(a+b)^s\le a^s+b^s$ for $a,b\ge0$ and $0<s\le1$, proving the claim.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}p{0.43\linewidth}p{0.52\linewidth}@{}}
+\toprule
+Source item & Coverage \\
+\midrule
+MathOverflow 469781, displayed question & Proved: Theorem~\ref{thm:main}. Prior proof cited: \cite[Theorem~6.2]{lyons}, then \cite[Lemma~10]{mb1}.\\
+Both posing posts, $n=3$ calculation & Prior proof cited: the questions themselves; Corollary~\ref{cor:sharp}.\\
+Mathematics Stack Exchange 4902019, displayed question & Proved: the identical inequality, Theorem~\ref{thm:main}.\\
+Same thread, 22 April 2024 comments; \cite{distances}, Conjecture~2.1 & Prior proof cited: \cite[Theorem~2]{mb1}, with $p=2$; \cite[Theorem~1]{mb4}.\\
+\cite{distances}, Corollary~4.2 and Theorems~6.4, 6.8 & Prior proofs cited: dimension three, Euclidean and multiplicative distances, respectively. All are included in \cite[Theorem~2]{mb1}.\\
+\cite{mb1}, Lemma~10, equation~(27); \cite{mb4}, Lemma~13, equation~(34) & Prior proof cited; Corollary~\ref{cor:twosided} supplies the signed and weaker-hypothesis version.\\
+\cite{mb1,mb4}, Remark~4; constant distances & Prior proof cited and proved: sharpness of $p\ge2$ and the constant-distance case, Corollary~\ref{cor:exponent}.\\
+Signed, complex, higher-degree and repeated-lift comparisons & Proved: Corollaries~\ref{cor:complex}--\ref{cor:degrees}.\\
+\bottomrule
+\end{tabular}
+\caption{The posing posts and their linked mathematical question.}
+\label{tab:coverage}
+\end{table}
+
+The declaration \texttt{weighted\_minors} in the namespace
+\texttt{AlternatingArrayContraction} of the pinned file \leanfile\ states
+the literal real orthonormal-triple inequality with strictly positive
+symmetric entries, namely that instance of Theorem~\ref{thm:main}.
+Its determinant definitions and increasing-index sums agree with the ones
+above. The signed-weight, weaker-hypothesis, complex, higher-degree and
+repeated-lift extensions have the written proofs above, rather than that
+declaration's narrower scope. The accompanying \texttt{verify.py} supplies
+exact rational checks of pair families and signed weights in dimensions
+three through six, and exact Gaussian-rational checks of contraction,
+two-sided bounds, higher degrees and repeated lifts in dimensions four
+through six. These finite comparisons are distinct from the universal proofs.
+
+\begin{thebibliography}{9}
+\small
+\bibitem{mo}
+\texttt{meler}, \emph{Inequality involving minors of an orthogonal matrix},
+MathOverflow question 469781, 23 April 2024.
+\url{https://mathoverflow.net/q/469781}.
+
+\bibitem{mse}
+\texttt{meler}, \emph{Inequality involving a symmetric matrix and minors of
+an orthogonal matrix}, Mathematics Stack Exchange question 4902019,
+19 April 2024; comments dated 22 April 2024.
+\url{https://math.stackexchange.com/q/4902019}.
+
+\bibitem{lyons}
+R. Lyons, \emph{Determinantal probability measures},
+Publications Math\'ematiques de l'IH\'ES \textbf{98} (2003), 167--212,
+especially Theorem~6.2, p.~183.
+\href{https://doi.org/10.1007/s10240-003-0016-0}{doi:10.1007/s10240-003-0016-0}.
+
+\bibitem{distances}
+R. Bistro\'n, M. Eckstein, S. Friedland, T. Miller, and K. \.Zyczkowski,
+\emph{A new class of distances on complex projective spaces},
+\href{https://arxiv.org/abs/2312.02583v1}{arXiv:2312.02583v1} (2023),
+Conjecture~2.1. Published in Linear Algebra and its Applications
+\textbf{721} (2025), 577--611,
+\href{https://doi.org/10.1016/j.laa.2024.10.017}{doi:10.1016/j.laa.2024.10.017}.
+
+\bibitem{mb1}
+T. Miller and R. Bistro\'n,
+\emph{Distances between pure quantum states induced by a distance matrix},
+\href{https://arxiv.org/abs/2509.14727v1}{arXiv:2509.14727v1},
+18 September 2025, Theorem~2, Theorem~9 and Lemma~10, equation~(27).
+
+\bibitem{mb4}
+T. Miller and R. Bistro\'n,
+\emph{Distances between pure quantum states induced by a distance matrix},
+\href{https://arxiv.org/abs/2509.14727v4}{arXiv:2509.14727v4},
+4 October 2026, Theorem~1, Theorem~12 and Lemma~13, equation~(34).
+\end{thebibliography}
+
+\bigskip\noindent\small
+\textcopyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International (CC BY 4.0)}.
+\end{document}

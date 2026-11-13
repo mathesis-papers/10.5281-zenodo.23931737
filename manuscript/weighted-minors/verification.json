@@ -1,0 +1,71 @@
+{
+  "pair_minors": {
+    "arithmetic": "exact rational and integer",
+    "dimensions": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "rational_frames_and_variants": 32,
+    "pair_family_inequalities": 270912,
+    "weighted_inequalities": 3200,
+    "exterior_energy_identities": 32,
+    "weight_cases": "constant negative, zero, constant positive, and deterministic signed patterns",
+    "scope": "finite real-coordinate checks; universal statements have written proofs in note.pdf",
+    "status": "pass"
+  },
+  "exterior_degrees": {
+    "arithmetic": "exact Gaussian rational, rational, and integer",
+    "configurations_n_k_r": [
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        5,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        2
+      ],
+      [
+        6,
+        3,
+        1
+      ],
+      [
+        6,
+        3,
+        2
+      ],
+      [
+        6,
+        1,
+        3
+      ]
+    ],
+    "cases": 36,
+    "nonreal_coordinate_cases": 18,
+    "certified_nondecomposable_two_form_cases": 12,
+    "cases_with_exhaustive_subset_families": 18,
+    "subset_family_inequalities": 11598,
+    "two_sided_weighted_inequalities": 2304,
+    "identities": "Hermitian orthonormality, horizontal contraction, recovery, equal mass, constant-weight equality",
+    "scope": "finite examples of Corollaries 4 and 5; universal statements have written proofs in note.pdf",
+    "status": "pass"
+  },
+  "distance_exponent_control": {
+    "exponent": 1,
+    "dimension": 2,
+    "long_side": "576/625",
+    "sum_of_short_sides": "18/25",
+    "triangle_inequality": false,
+    "scope": "one exact instance of Corollary 7"
+  },
+  "status": "pass"
+}
