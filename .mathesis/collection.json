@@ -1,7 +1,7 @@
 {
   "git_blobs": {
     ".github/workflows/pages.yml": "7879724db1358178aad7e9bed326a44be44f5a6a",
-    ".mathesis/generated.json": "5a97c3cc8a94b522ec106cfc1af816860a785cba",
+    ".mathesis/generated.json": "8ad14eca566740a77f1699f246c907dde93739ca",
     "CHANGELOG.md": "35283711403de211c9e5ade9ce5343151721aac3",
     "CITATION.cff": "7885db82788bcd9e49f4a1ad8a7d8556ef7b59e5",
     "CONTRIBUTING.md": "ea69168fc2cb506b57b00de1ef588aaf011aa3da",
@@ -13,12 +13,13 @@
     "manuscript/weighted-minors/note.tex": "3a56f6bebbf4214bf7888c76e7119185742ef150",
     "manuscript/weighted-minors/verification.json": "8361767b57ea233e65179baafe9ef439089d6f0a",
     "manuscript/weighted-minors/verify.py": "172a2ea4985026ec5c610309d69811163c022af3",
-    "paper.json": "04bd73adce512b74a4037b493c1bd9cd8e5f0dbb",
+    "paper.json": "52099205b4965a84a42d4803175533c5ba458f99",
     "paper.pdf": "a1957bce3618aa1b28b7aa6d30f83d014fadb356",
     "site/en/index.html": "cdd11d5b80f8f88502a0ecaff6193133847df0f6",
-    "site/index.html": "4bd980595b7166a8a20a5e93ab0cc313e146fff0",
+    "site/index.html": "7058fbb6d49f569f2b88169795af460d8fd20a1f",
     "site/mathesis-materials.json": "3ea7702845c303671a65442099387faa1c0d7c84",
     "site/zh/index.html": "8cc164825ffd94b7ba2887be514f6cf5b53dcbdd",
+    "source.archive": "5d87f933419de81fb02f833d3489d38bf7f5d9d4",
     "versions/v2/.mathesis/generated.json": "9c50c252bd33775b08d9ee8945ac29908438fd0f",
     "versions/v2/CHANGELOG.md": "35283711403de211c9e5ade9ce5343151721aac3",
     "versions/v2/CITATION.cff": "7885db82788bcd9e49f4a1ad8a7d8556ef7b59e5",
@@ -32,12 +33,13 @@
     "versions/v2/manuscript/weighted-minors/verification.json": "8361767b57ea233e65179baafe9ef439089d6f0a",
     "versions/v2/manuscript/weighted-minors/verify.py": "172a2ea4985026ec5c610309d69811163c022af3",
     "versions/v2/paper.json": "b0f5a22dfa8fc7cc11d27eca2272c6954f27e575",
-    "versions/v2/paper.pdf": "a1957bce3618aa1b28b7aa6d30f83d014fadb356"
+    "versions/v2/paper.pdf": "a1957bce3618aa1b28b7aa6d30f83d014fadb356",
+    "versions/v2/source.archive": "5d87f933419de81fb02f833d3489d38bf7f5d9d4"
   },
   "schema": "mathesis.paper-collection.v1",
   "sha256": {
     ".github/workflows/pages.yml": "f15d983dcb8f324ffdedb50b05f7380e11fda8723d49b5c8f10ef0f414612372",
-    ".mathesis/generated.json": "431990756c6e2b09f8f4fffa3bceb563d85041a0bef1a50329e9cbd1058eb475",
+    ".mathesis/generated.json": "d558ca8254cb67d996ee8b63a57f3c14b68b9773c410a585b42c4282bdbc34d8",
     "CHANGELOG.md": "92fd3e7982848312b1278887506c19bc680f23db29efd0899ffc400221e4b0ac",
     "CITATION.cff": "08b921e536d2284f42411e71ef332747bcf1f5ef67b78ae656c0e1dd774f81c5",
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
@@ -49,12 +51,13 @@
     "manuscript/weighted-minors/note.tex": "d43c669bdb2ef9762aec71de8c0fa988f27cd88795c59bc395b023a5a8b4aa48",
     "manuscript/weighted-minors/verification.json": "7a821027e0f32e556a17f76844785f376dacd200c2a26b3cf8b5ff107b0af7dd",
     "manuscript/weighted-minors/verify.py": "363967b2c3ce621ca70bc7605c662d430708eb9458d85a87f6bd5556258fa374",
-    "paper.json": "d1f44ca7c68b181dff2d4b02cb96a9b1a4a34a7f08959dd701e1569f0d485b92",
+    "paper.json": "fdcf4bdd0c723f34614a143cf996fd6ddabe34ce72a294f800b2be7c2e7ba8cd",
     "paper.pdf": "9a6bbd4b87f272350065b27f92ef8589b90c55a4aa357ef8c76236747c67ec13",
     "site/en/index.html": "957a0274e418d2e6c6330800ebbf039da6c93443550bddef6dd726c9a25f84c4",
-    "site/index.html": "90e536149475e5f0cd37f2369278029115895a804ae4e086a41819c17eb75303",
+    "site/index.html": "e9154b4c15cc79ca128bf1a197508fb5a6ef5f909f4d767db142476cbd17fe7d",
     "site/mathesis-materials.json": "e1bbefffba20f4207d1be569f67b2775f29517685398388b4fe3a1f9821785a5",
     "site/zh/index.html": "7a47498309d4efbdd467bb408e4b735285866bc75470c8b6d9e8834da8e08ca8",
+    "source.archive": "b20fcaf33adee2ae534ff9cdb6b1be5e8a92fd02d76b15445f946edfc4c9ce02",
     "versions/v2/.mathesis/generated.json": "28aae3bb583133094ce1c9954e3e3140c31bea3e4549a911e9fa4ea8f1eb5fa9",
     "versions/v2/CHANGELOG.md": "92fd3e7982848312b1278887506c19bc680f23db29efd0899ffc400221e4b0ac",
     "versions/v2/CITATION.cff": "08b921e536d2284f42411e71ef332747bcf1f5ef67b78ae656c0e1dd774f81c5",
@@ -68,7 +71,8 @@
     "versions/v2/manuscript/weighted-minors/verification.json": "7a821027e0f32e556a17f76844785f376dacd200c2a26b3cf8b5ff107b0af7dd",
     "versions/v2/manuscript/weighted-minors/verify.py": "363967b2c3ce621ca70bc7605c662d430708eb9458d85a87f6bd5556258fa374",
     "versions/v2/paper.json": "f86192000b33da3255c2cff9c8f6c097fbd2ee0f1e8c0afb006db561d903d1f8",
-    "versions/v2/paper.pdf": "9a6bbd4b87f272350065b27f92ef8589b90c55a4aa357ef8c76236747c67ec13"
+    "versions/v2/paper.pdf": "9a6bbd4b87f272350065b27f92ef8589b90c55a4aa357ef8c76236747c67ec13",
+    "versions/v2/source.archive": "b20fcaf33adee2ae534ff9cdb6b1be5e8a92fd02d76b15445f946edfc4c9ce02"
   },
   "version": 2,
   "work": "mathoverflow-469781-weighted-orthogonal-minors"
