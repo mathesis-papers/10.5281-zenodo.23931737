@@ -2,16 +2,16 @@
   "files": {
     "pdf": {
       "bytes": 82773,
-      "matches_public": null,
+      "matches_public": true,
       "path": "paper.pdf",
-      "public_sha256": null,
+      "public_sha256": "9a6bbd4b87f272350065b27f92ef8589b90c55a4aa357ef8c76236747c67ec13",
       "sha256": "9a6bbd4b87f272350065b27f92ef8589b90c55a4aa357ef8c76236747c67ec13"
     },
     "source": {
       "bytes": 14409,
-      "matches_public": null,
+      "matches_public": true,
       "path": "source.archive",
-      "public_sha256": null,
+      "public_sha256": "b20fcaf33adee2ae534ff9cdb6b1be5e8a92fd02d76b15445f946edfc4c9ce02",
       "sha256": "b20fcaf33adee2ae534ff9cdb6b1be5e8a92fd02d76b15445f946edfc4c9ce02"
     }
   },
@@ -38,6 +38,8 @@
     "license": "CC-BY-4.0",
     "msc": [],
     "pdf": {
+      "bytes": 82773,
+      "sha256": "9a6bbd4b87f272350065b27f92ef8589b90c55a4aa357ef8c76236747c67ec13",
       "url": "/api/v1/collected-papers/mathoverflow-469781-weighted-orthogonal-minors/files/pdf?version=2"
     },
     "previous_version": null,
@@ -46,6 +48,8 @@
     "record": "mathoverflow-469781-weighted-orthogonal-minors",
     "repository_name": "10.5281-zenodo.23931737",
     "source": {
+      "bytes": 14409,
+      "sha256": "b20fcaf33adee2ae534ff9cdb6b1be5e8a92fd02d76b15445f946edfc4c9ce02",
       "url": "/api/v1/collected-papers/mathoverflow-469781-weighted-orthogonal-minors/files/source?version=2"
     },
     "title": "Proof of the weighted-minor inequality in MathOverflow 469781",
