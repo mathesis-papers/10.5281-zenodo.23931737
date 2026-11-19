@@ -1,0 +1,279 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{From areas to volumes: weighted minors}
+\subtitle{Proof of the weighted-minor inequality in MathOverflow 469781}
+\author{Haobo Ma \and Wenlin Zhang}
+\begin{document}
+% Manuscript: Title; version 2
+\begin{frame}{From areas to volumes}
+\titlepage
+\note{Introduce version 2 by Haobo Ma and Wenlin Zhang. Explain contraction and its extensions while retaining the precise prior-work attribution.}
+\end{frame}
+% Manuscript: Outline
+\begin{frame}{Route through the argument}
+\tableofcontents
+\note{Start with areas, then families, price layers and equal-mass cancellation. The appendix retains precise extension hypotheses and the distance exponent.}
+\end{frame}
+\section{Question and examples}
+% Manuscript: Section 1, definitions
+\begin{frame}{Two coordinates give an area}
+\[
+p_{ij}=\det\begin{pmatrix}x_i&x_j\\y_i&y_j\end{pmatrix}
+=x_i y_j-x_j y_i.
+\]
+\begin{itemize}
+\item Keep coordinates $i,j$: oriented projected area.
+\item Exchanging coordinates changes sign; use squares.
+\item Count each unordered pair once: $i<j$.
+\end{itemize}
+\note{Explain the determinant using a parallelogram. Squares remove orientation, but the quantity compared is the sum of squared areas.}
+\end{frame}
+% Manuscript: Corollary 6; n=3 calculation
+\begin{frame}{Three dimensions: a weighted average}
+\[
+x=(1,0,0),\quad y=(0,3/5,4/5),
+\]
+\[
+z=(0,-4/5,3/5),\qquad q_{123}^2=1.
+\]
+\[
+(p_{12}^2,p_{13}^2,p_{23}^2)=(9,16,0)/25.
+\]
+\[
+(a_{12},a_{13},a_{23})=(2,5,1),\quad
+1\le\frac{98}{25}\le5.
+\]
+\small This three-dimensional comparison is in the posing questions.
+\note{The triple is orthonormal. Total squared mass is one, so minimum and maximum prices bound the weighted average.}
+\end{frame}
+% Manuscript: Section 1, definitions
+\begin{frame}{Higher dimensions: overlapping triples}
+\[
+q_{ijk}=\det\begin{pmatrix}x_i&x_j&x_k\\y_i&y_j&y_k\\z_i&z_j&z_k\end{pmatrix}.
+\]
+\[
+E(a)=\sum_{i<j}a_{ij}|p_{ij}|^2.
+\]
+\[
+M_{ijk}=\max\{a_{ij},a_{ik},a_{jk}\},
+\qquad U(a)=\sum_{i<j<k}M_{ijk}|q_{ijk}|^2.
+\]
+Goal: $E(a)\le U(a)$. An edge belongs to many triples.
+\note{Absolute squares are ordinary squares for real data. Symmetry of weights is not positive definiteness; the maximum uses exactly three edges.}
+\end{frame}
+% Manuscript: Theorem 1, original-question specialization
+\begin{frame}{The original question, precisely}
+\begin{bookresult}{orthonormal-minors}
+For every natural $n$, let $x,y,z\in\mathbb R^n$ be orthonormal. Let $A$ be real, symmetric and strictly positive in every entry. Put $a_{ij}=A_{ij}$ off the diagonal. Then
+\[
+E(a)\le U(a).
+\]
+\end{bookresult}
+\small Diagonal entries do not enter the sums; the triple forces $n\ge3$.
+\note{Retain strict positivity of every matrix entry, including the diagonal, to match the cited public Lean statement. Broader results retain their written proofs.}
+\end{frame}
+\section{Proof mechanism}
+% Manuscript: Section 2, contraction and equal mass
+\begin{frame}{Add a direction, then contract back}
+\[
+u=x\wedge y,\qquad b=z\wedge u.
+\]
+If $\|z\|=1$ and $z\perp x,y$, then
+\[
+\iota_z b=u,\qquad \|b\|^2=\|u\|^2.
+\]
+\begin{block}{Two operations}
+A perpendicular unit lift preserves length; reverse contraction cannot increase it.
+\end{block}
+\note{In an orthonormal basis beginning with $z$, write $b=z\wedge c+d$ with orthogonal terms. Contraction retains $c$, so its norm cannot increase.}
+\end{frame}
+% Manuscript: Lemma 2, Section 2
+\begin{frame}{Control every edge family}
+\begin{bookresult}{family-domination}
+Let $n\ge3$, real $x,y,z$, $\|z\|=1$ and $z\perp x,y$. For any pair family $F$, let $N(F)$ contain every triple with a selected edge. Then
+\[
+\sum_{\{i,j\}\in F}p_{ij}^2
+\le\sum_{\{i,j,k\}\in N(F)}q_{ijk}^2.
+\]
+\end{bookresult}
+\[
+P_F\iota_zb=P_F\iota_zP_{N(F)}b.
+\]
+\note{Count sets once. Locality says discarding irrelevant triples still recovers selected edges. Projection and contraction cannot increase length. Empty families and zero minors are included. The sources chapter explains the existing private proof and public-interface gap.}
+\end{frame}
+% Manuscript: Section 3, finite layers
+\begin{frame}{Maximum means “at least one edge”}
+\[
+0=t_0<t_1<\cdots<t_s,\quad F_\ell=\{ij:a_{ij}\ge t_\ell\}.
+\]
+\[
+a_{ij}=\sum_\ell(t_\ell-t_{\ell-1})\mathbf1_{ij\in F_\ell}.
+\]
+\[
+\{i,j,k\}\in N(F_\ell)\iff M_{ijk}\ge t_\ell.
+\]
+Apply the family bound at each layer, then add with nonnegative thicknesses.
+\note{Here weights are nonnegative. Distinct positive values are layer heights; ties share a layer and zero adds none. All-zero weights give an empty layer sum. Everything is finite, without limits.}
+\end{frame}
+% Manuscript: Theorem 1, Section 3 signed shift
+\begin{frame}{Signed weights: equal mass cancels}
+\begin{bookresult}{signed-minors}
+Let $n\ge3$, $x,y,z\in\mathbb R^n$, $\|z\|=1$ and $z\perp x,y$. Arbitrary real symmetric off-diagonal weights satisfy $E(a)\le U(a)$.
+\end{bookresult}
+\[
+m=\min a_{ij},\quad a'=a-m,\quad
+\sum p_{ij}^2=\sum q_{ijk}^2=M.
+\]
+\[
+E(a')=E(a)-mM,\quad U(a')=U(a)-mM.
+\]
+\note{No normalization, mutual orthogonality or independence of $x,y$ is required. Compare the nonnegative weights $a'$ and cancel the identical $mM$ term. This explains rather than simply removes the sign restriction.}
+\end{frame}
+% Manuscript: Corollary 3, Section 3
+\begin{frame}{Complex contraction needs conjugation}
+\begin{bookresult}{complex-minors}
+Let $n\ge3$, $x,y,z\in\mathbb C^n$, unit $z$ and Hermitian $z\perp x,y$. Arbitrary real symmetric off-diagonal weights satisfy $E(a)\le U(a)$ using absolute squares.
+\end{bookresult}
+\[
+p_{ij}=\sum_h\overline{z_h}q_{hij}.
+\]
+\small Orthogonal decomposition, locality and equal-mass shifting persist.
+\note{The inner product is conjugate-linear in its first variable. Contraction is the adjoint of exterior multiplication, so it must conjugate $z_h$. Merely changing squares to absolute squares is insufficient.}
+\end{frame}
+% Manuscript: Corollary 4, Section 3
+\begin{frame}{Negation gives the lower bound}
+\[
+m_{ijk}=\min\{a_{ij},a_{ik},a_{jk}\},
+\quad L(a)=\sum_{i<j<k}m_{ijk}|q_{ijk}|^2.
+\]
+\begin{bookresult}{two-sided}
+Under the preceding real or complex hypotheses, unit $z\perp x,y$ and $n\ge3$, all real symmetric off-diagonal weights satisfy
+\[
+L(a)\le E(a)\le U(a).
+\]
+\end{bookresult}
+\[
+\max(-a)=-\min(a).
+\]
+\note{Apply the signed upper bound to $-a$ to get $-E(a)\le-L(a)$. Multiplication by minus one reverses the inequality. This step needs the signed version.}
+\end{frame}
+\section{Meaning and attribution}
+% Manuscript: Sections 1 and 5, prior work
+\begin{frame}{Prior work and the focus here}
+\begin{itemize}
+\item meler, 2024: MathOverflow 469781 / MSE 4902019.
+\item Lyons, 2003, Theorem 6.2 implies the orthonormal comparison.
+\item Miller--Bistroń, 2025, Lemma 10, (27): complex orthonormal nonnegative two-sided bound.
+\item Their Theorem 2 proves the general distance-matrix result for $p\ge2$.
+\end{itemize}
+\begin{block}{Focus here}
+Contraction, locality, finite layers, cancellation and extensions.
+\end{block}
+\note{This makes no first-settlement claim. The version-4 locators are Lemma 13, equation (34), and Theorem 1. The general distance conjecture has been settled.}
+\end{frame}
+\appendix
+\section{Technical appendix}
+% Manuscript: Section 2, norm decomposition
+\begin{frame}{Appendix: the contraction norm}
+\[
+b=z\wedge c+d,
+\quad c\in\Lambda^{\ell-1}(z^\perp),\ d\in\Lambda^\ell(z^\perp).
+\]
+\[
+\iota_zb=c,\qquad\|b\|^2=\|c\|^2+\|d\|^2.
+\]
+For $u\in\Lambda^k(z^\perp)$,
+\[
+\iota_z(z\wedge u)=u,\qquad\|z\wedge u\|=\|u\|.
+\]
+No decomposability: sums of exterior products are allowed.
+\note{Basis coordinates containing and avoiding $z$ are orthogonal. The decomposition works in every degree, including forms not coming from one parallelotope.}
+\end{frame}
+% Manuscript: Corollary 5, Section 4
+\begin{frame}{All degrees and repeated lifts}
+\small
+\begin{bookresult}{repeated-lifts}
+$\mathbb K=\mathbb R$ or $\mathbb C$, $k,r\ge1$, $k+r\le n$. Let $z_1,\ldots,z_r$ be orthonormal and $V=\operatorname{span}(z_1,\ldots,z_r)^\perp$. Take any $u\in\Lambda^kV$ and $b=z_r\wedge\cdots\wedge z_1\wedge u$.
+\[
+A_k=\sum_{|S|=k}a_S|u_S|^2,\quad a_S\in\mathbb R,
+\qquad L_{k,r}\le A_k\le U_{k,r}.
+\]
+$L_{k,r},U_{k,r}$ sum $|b_T|^2$ times the minimum/maximum over all $S\subset T$, $|S|=k$, for each $|T|=k+r$.
+\end{bookresult}
+\note{Any form includes non-decomposable forms. The extremum sets are nonempty. Both $u=0$ and $k+r=n$ are included; the original form must come from the common perpendicular space.}
+\end{frame}
+% Manuscript: Corollary 5 proof
+\begin{frame}{Each step retains perpendicularity}
+\[
+u_0=u,\qquad u_j=z_j\wedge u_{j-1}.
+\]
+Vectors of $V$ and $z_1,\ldots,z_{j-1}$ are perpendicular to $z_j$, so
+\[
+u_{j-1}\in\Lambda^{k+j-1}(z_j^\perp).
+\]
+\[
+\alpha_j(T)=\max_{\substack{R\subset T\\|R|=k+j-1}}\alpha_{j-1}(R)
+=\max_{\substack{S\subset T\\|S|=k}}a_S.
+\]
+Every $S$ extends to an intermediate $R$; minima work likewise.
+\note{Apply the one-step bound successively and induct over subset chains. Containment transitivity gives one direction; extending every original subset gives the other. Norm is preserved at every step.}
+\end{frame}
+% Manuscript: Corollary 6, Section 4
+\begin{frame}{Constant weights and the sharp coefficient}
+\begin{bookresult}{sharpness}
+Under all repeated-lift hypotheses, constant real weights give both equalities and the nonnegative upper coefficient one cannot be uniformly reduced. The three-dimensional orthonormal case is an elementary weighted-average bound.
+\end{bookresult}
+\[
+a_S=c\Longrightarrow L_{k,r}=A_k=U_{k,r}=c\|u\|^2.
+\]
+\[
+u=e_1\wedge\cdots\wedge e_k,\quad z_j=e_{k+j},\quad c>0.
+\]
+\small A nonzero equality example, without a full equality classification.
+\note{Constants may have either sign. Sharpness needs a positive nonzero example, not zero data. In dimension three the unique volume square and total area mass both equal one.}
+\end{frame}
+% Manuscript: Corollary 7, Section 5
+\begin{frame}{Exponent boundary for the linked distance}
+\small
+\[
+D_p([x],[y])=\left(\sum_{i<j}d_{ij}^p|p_{ij}|^2\right)^{1/p},\quad\|x\|=\|y\|=1.
+\]
+\begin{bookresult}{exponent}
+For every $n\ge2$ and genuine distance matrix, every $0<p<2$ violates the triangle inequality. For constant off-diagonal distances $c>0$, $D_p$ is a metric on complex projective space for each $p\ge2$.
+\end{bookresult}
+\small The general-distance-matrix $p\ge2$ theorem is Miller--Bistroń’s.
+\note{A distance matrix is symmetric, has zero diagonal and positive off-diagonal entries, and satisfies the triangle inequality. Unit vectors differing by a global phase represent one point.}
+\end{frame}
+% Manuscript: Corollary 7 proof
+\begin{frame}{Small angles and constant distances}
+\small
+\[
+x=\cos\theta e_1+\sin\theta e_2,\quad y=\cos\theta e_1-\sin\theta e_2,
+\quad z=e_1.
+\]
+The triangle inequality would require $\cos\theta\le2^{p/2-1}$, but choose
+\[
+0<\theta\mathrel{<}\min\{\pi/4,\arccos(2^{p/2-1})\}\quad(p<2).
+\]
+For $d_{ij}=c$ off the diagonal,
+\[
+D_p=c\left(\|xx^*-yy^*\|_{\rm HS}/\sqrt2\right)^{2/p}.
+\]
+Use the norm triangle inequality and $(a+b)^{2/p}\le a^{2/p}+b^{2/p}$ for $p\ge2$.
+\note{The distances are $d_{12}\sin^{2/p}(2\theta)$ and twice $d_{12}\sin^{2/p}\theta$. Cancel positive factors to obtain the obstruction. The constant-distance formula uses the Gram identity; projectors give phase invariance and separation.}
+\end{frame}
+% Manuscript: Bibliography; source and contribution links
+\begin{frame}{Sources and further contributions}
+\footnotesize
+\begin{itemize}
+\item Paper version 2: \href{https://doi.org/10.5281/zenodo.23931738}{10.5281/zenodo.23931738}.
+\item Lyons: \href{https://doi.org/10.1007/s10240-003-0016-0}{Determinantal probability measures}, Theorem 6.2.
+\item Miller--Bistroń: \href{https://arxiv.org/abs/2509.14727v1}{arXiv:2509.14727v1}; \href{https://arxiv.org/abs/2509.14727v4}{v4}, Lemma 13, Theorem 1.
+\item \href{https://github.com/the-omega-institute/trureturing-requests/issues/121}{Shared request: all degrees and repeated lifts}.
+\end{itemize}
+\normalsize Complete proofs and the other requests are in the technical chapter, sources and contribution guide.
+\note{Contributions start from exact statements. Shared requests are neither platform verification receipts nor new mathematical conjectures.}
+\end{frame}
+% Manuscript: Exact evidence ledger
+\FormalVerification
+\end{document}

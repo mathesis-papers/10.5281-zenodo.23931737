@@ -1,0 +1,12 @@
+kind = "academic"
+editions = ["zh", "en"]
+aspect = "4:3"
+structure_colour = "#0e2c8e"
+short_author = "H. Ma, W. Zhang"
+short_title = "Weighted minors"
+institution = 'Haobo Ma: Chrono AI, Singapore; Wenlin Zhang: National University of Singapore and Chrono AI, Singapore'
+date = "Version 2 · 2026"
+navigation_symbols = false
+[title]
+zh = "从面积到体积：加权子式比较"
+en = "From areas to volumes: weighted minors"

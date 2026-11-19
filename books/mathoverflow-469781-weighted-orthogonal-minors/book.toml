@@ -1,0 +1,17 @@
+[book]
+version = "2"
+authors = ["Haobo Ma", "Wenlin Zhang"]
+license = "CC-BY-4.0"
+editions = ["zh", "en"]
+date = "2026-11-05"
+[book.title]
+zh = "Proof of the weighted-minor inequality in MathOverflow 469781"
+en = "Proof of the weighted-minor inequality in MathOverflow 469781"
+[outputs]
+html = true
+pdf = ["academic"]
+epub = true
+[mathesis]
+work = "mathoverflow-469781-weighted-orthogonal-minors"
+version = 2
+source_title = "Proof of the weighted-minor inequality in MathOverflow 469781"

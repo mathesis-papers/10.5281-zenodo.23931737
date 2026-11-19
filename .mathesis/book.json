@@ -1,0 +1,99 @@
+{
+  "book": "mathoverflow-469781-weighted-orthogonal-minors",
+  "pending_claims": [],
+  "results": {
+    "orthonormal-minors": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s1",
+      "gids": [
+        "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors"
+      ],
+      "comparison_verdict": "same",
+      "compared_public_gid": "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8"
+    },
+    "signed-minors": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s1",
+      "gids": [],
+      "comparison_verdict": "special case",
+      "compared_public_gid": "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Signed upper comparison",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/117"
+      }
+    },
+    "family-domination": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s2",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Public coordinate-family comparison",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/118"
+      }
+    },
+    "complex-minors": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s3",
+      "gids": [],
+      "comparison_verdict": "special case",
+      "compared_public_gid": "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Hermitian complex comparison",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/119"
+      }
+    },
+    "two-sided": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s4",
+      "gids": [],
+      "comparison_verdict": "special case",
+      "compared_public_gid": "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Signed two-sided comparison",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/120"
+      }
+    },
+    "repeated-lifts": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s5",
+      "gids": [],
+      "comparison_verdict": "special case",
+      "compared_public_gid": "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Arbitrary-degree repeated lifts",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/121"
+      }
+    },
+    "sharpness": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s6",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Constant-weight equality and sharpness",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/122"
+      }
+    },
+    "exponent": {
+      "claim": "collected:mathoverflow-469781-weighted-orthogonal-minors:2:s7",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Distance exponent",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/123"
+      }
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "Proof of the weighted-minor inequality in MathOverflow 469781",
+    "zh": "Proof of the weighted-minor inequality in MathOverflow 469781"
+  },
+  "version": 2,
+  "work": "mathoverflow-469781-weighted-orthogonal-minors"
+}

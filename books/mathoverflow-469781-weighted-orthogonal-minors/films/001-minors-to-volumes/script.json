@@ -1,0 +1,147 @@
+{
+  "voice": "af_heart",
+  "speed": 0.98,
+  "say": {
+    "Lean": "Leen",
+    "Lyons": "Lions",
+    "Bistroń": "Bistron"
+  },
+  "music": {
+    "bpm": 84,
+    "progression": "d-minor"
+  },
+  "scenes": [
+    {
+      "id": "areas",
+      "name": "COORDINATE AREAS",
+      "lead": 0.8,
+      "tail": 0.6,
+      "lines": [
+        [
+          "Start in three dimensions. Two vectors span a parallelogram; each coordinate pair records a projected area.",
+          "先看三维。两个向量张成平行四边形，每对坐标记录一个投影面积。"
+        ],
+        [
+          "Here the squared areas are nine twenty-fifths and sixteen twenty-fifths. The third is zero. Their total is one.",
+          "这里的面积平方为二十五分之九与二十五分之十六，第三个为零，总和是一。"
+        ],
+        [
+          "Prices two, five and one give a weighted total of ninety-eight twenty-fifths, between one and five.",
+          "价格取二、五、一，加权总和为二十五分之九十八，位于一与五之间。"
+        ]
+      ]
+    },
+    {
+      "id": "question",
+      "name": "THE ORIGINAL COMPARISON",
+      "lead": 0.7,
+      "tail": 0.6,
+      "lines": [
+        [
+          "For a real orthonormal triple in any dimension, every symmetric matrix with strictly positive entries satisfies this upper comparison.",
+          "在任意维数中，实数正交单位三元组和所有元素严格为正的对称矩阵满足这个上界。"
+        ],
+        [
+          "Each volume square receives the largest of its three edge prices. This precise statement has a Lean theorem.",
+          "每个体积平方采用其三条边中最大的价格。这个准确陈述有对应的 Lean 定理。"
+        ]
+      ]
+    },
+    {
+      "id": "contraction",
+      "name": "LIFT AND CONTRACT",
+      "lead": 0.7,
+      "tail": 0.6,
+      "lines": [
+        [
+          "The written argument needs only a unit vector z perpendicular to x and y. They need not be unit or mutually perpendicular.",
+          "书面论证只要求单位向量 z 垂直于 x 和 y；后两者不必归一化或互相垂直。"
+        ],
+        [
+          "Adjoining z preserves total squared mass. Contraction recovers the area data without increasing length.",
+          "添上 z 保持平方总质量；收缩恢复面积数据而不增长度。"
+        ],
+        [
+          "Recovering one edge reads only volumes whose triples contain that edge.",
+          "恢复一条边，只读取包含这条边的三元组体积。"
+        ]
+      ]
+    },
+    {
+      "id": "families",
+      "name": "LOCALITY CONTROLS FAMILIES",
+      "lead": 0.7,
+      "tail": 0.6,
+      "lines": [
+        [
+          "Choose any family of edges. Keep every triangle containing a chosen edge, counting each triangle once.",
+          "任取一组边，保留所有包含所选边的三角形，每个三角形只计一次。"
+        ],
+        [
+          "Discard the other volume coordinates, contract, then keep the selected area coordinates. Neither operation increases length.",
+          "丢掉其余体积坐标，收缩，再保留所选面积坐标；这些操作都不增长度。"
+        ],
+        [
+          "So the selected squared areas cannot exceed the retained squared volumes.",
+          "因此所选面积平方总和不超过保留的体积平方总和。"
+        ]
+      ]
+    },
+    {
+      "id": "layers",
+      "name": "PRICES AS FINITE LAYERS",
+      "lead": 0.7,
+      "tail": 0.6,
+      "lines": [
+        [
+          "For nonnegative prices, build one, three and four from layers of thickness one, two and one.",
+          "对非负价格，用厚度一、二、一的层构成价格一、三、四。"
+        ],
+        [
+          "At each level, a triangle survives exactly when at least one edge reaches that level: its maximum price does.",
+          "每层中，三角形被保留恰好等价于至少一条边达到该层，也就是最大价格达到该层。"
+        ],
+        [
+          "Add the family comparisons, weighted by layer thickness, to recover the upper bound.",
+          "按层厚度加总坐标族比较，就恢复了加权上界。"
+        ]
+      ]
+    },
+    {
+      "id": "signed",
+      "name": "EQUAL MASS CANCELS",
+      "lead": 0.7,
+      "tail": 0.7,
+      "lines": [
+        [
+          "Under the same real unit-z and perpendicularity assumptions, negative prices work too. Subtract the smallest price to make all prices nonnegative.",
+          "在同一实数、单位 z 和垂直假设下，负价格也成立。减去最小价格，使全部价格非负。"
+        ],
+        [
+          "Both totals change by the same constant times their common mass. That term cancels.",
+          "两边总价都改变同一个常数乘以共同质量，该项恰好消去。"
+        ],
+        [
+          "Negate all prices to turn the maximum upper bound into the minimum lower bound.",
+          "把全部价格取负，就把最大值上界变成最小值下界。"
+        ]
+      ]
+    },
+    {
+      "id": "credit",
+      "name": "THE IDEA AND ITS SOURCES",
+      "lead": 0.7,
+      "tail": 1.0,
+      "lines": [
+        [
+          "The question is meler’s. Lyons’s earlier theorem implies the orthonormal comparison; Miller and Bistron gave a direct two-sided proof.",
+          "问题来自 meler。Lyons 的早期定理已蕴含正交单位比较；Miller 与 Bistroń 给出过直接双侧证明。"
+        ],
+        [
+          "Haobo Ma and Wenlin Zhang explain the contraction argument and its extensions. The key is locality, then layers, then equal-mass cancellation.",
+          "Haobo Ma 与 Wenlin Zhang 解释收缩论证及其推广。关键是局部性、分层和等质量消去。"
+        ]
+      ]
+    }
+  ]
+}

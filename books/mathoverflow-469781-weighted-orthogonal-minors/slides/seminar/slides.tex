@@ -1,0 +1,279 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{从面积到体积：加权子式比较}
+\subtitle{Proof of the weighted-minor inequality in MathOverflow 469781}
+\author{Haobo Ma \and Wenlin Zhang}
+\begin{document}
+% Manuscript: Title; version 2
+\begin{frame}{从面积到体积}
+\titlepage
+\note{介绍 Haobo Ma 与 Wenlin Zhang 的论文第 2 版。报告解释收缩及其推广，并保留前人的具体归属。}
+\end{frame}
+% Manuscript: Outline
+\begin{frame}{报告路线}
+\tableofcontents
+\note{从面积例子开始，再讲坐标族、价格分层与等质量消去。完整的推广条件和距离指数在附录中。}
+\end{frame}
+\section{问题与例子}
+% Manuscript: Section 1, definitions
+\begin{frame}{两个坐标给出面积}
+\[
+p_{ij}=\det\begin{pmatrix}x_i&x_j\\y_i&y_j\end{pmatrix}
+=x_i y_j-x_j y_i.
+\]
+\begin{itemize}
+\item 保留坐标 $i,j$：有向投影面积。
+\item 交换坐标改变符号；比较使用平方。
+\item 每个无序坐标对只计一次：$i<j$。
+\end{itemize}
+\note{先通过平行四边形解释行列式。平方消除方向符号，但这里比较的是面积平方的和。}
+\end{frame}
+% Manuscript: Corollary 6; n=3 calculation
+\begin{frame}{三维：加权平均}
+\[
+x=(1,0,0),\quad y=(0,3/5,4/5),
+\]
+\[
+z=(0,-4/5,3/5),\qquad q_{123}^2=1.
+\]
+\[
+(p_{12}^2,p_{13}^2,p_{23}^2)=(9,16,0)/25.
+\]
+\[
+(a_{12},a_{13},a_{23})=(2,5,1),\quad
+1\le\frac{98}{25}\le5.
+\]
+\small 原提问已包含这个三维比较。
+\note{三个向量正交归一。平方总质量为一，故最小和最大价格夹住加权平均。}
+\end{frame}
+% Manuscript: Section 1, definitions
+\begin{frame}{高维：重叠的三元组}
+\[
+q_{ijk}=\det\begin{pmatrix}x_i&x_j&x_k\\y_i&y_j&y_k\\z_i&z_j&z_k\end{pmatrix}.
+\]
+\[
+E(a)=\sum_{i<j}a_{ij}|p_{ij}|^2.
+\]
+\[
+M_{ijk}=\max\{a_{ij},a_{ik},a_{jk}\},
+\qquad U(a)=\sum_{i<j<k}M_{ijk}|q_{ijk}|^2.
+\]
+目标：$E(a)\le U(a)$。同一条边属于多个三元组。
+\note{实数时绝对值平方就是平方。权重对称不是正定性条件；最大值只取三条边。}
+\end{frame}
+% Manuscript: Theorem 1, original-question specialization
+\begin{frame}{原问题的精确形式}
+\begin{bookresult}{orthonormal-minors}
+任意自然数 $n$，$x,y,z\in\mathbb R^n$ 正交归一。实矩阵 $A$ 对称且所有元素严格为正。取非对角权重 $a_{ij}=A_{ij}$，则
+\[
+E(a)\le U(a).
+\]
+\end{bookresult}
+\small 对角元不进入求和；三元组的存在蕴含 $n\ge3$。
+\note{此处保留全部矩阵元严格为正，包括对角元，与所引公开 Lean 陈述一致。后续较广的结果用其书面证明。}
+\end{frame}
+\section{证明机制}
+% Manuscript: Section 2, contraction and equal mass
+\begin{frame}{添上方向，再收缩回来}
+\[
+u=x\wedge y,\qquad b=z\wedge u.
+\]
+若 $\|z\|=1$ 且 $z\perp x,y$，则
+\[
+\iota_z b=u,\qquad \|b\|^2=\|u\|^2.
+\]
+\begin{block}{两种操作}
+外乘垂直单位方向保长度；反向收缩不增加长度。
+\end{block}
+\note{以 $z$ 开头的正交单位基给出 $b=z\wedge c+d$，两部分正交。收缩保留 $c$，因而不增长度。}
+\end{frame}
+% Manuscript: Lemma 2, Section 2
+\begin{frame}{控制任意一组边}
+\begin{bookresult}{family-domination}
+$n\ge3$，实数 $x,y,z$，$\|z\|=1$，$z\perp x,y$。任取坐标对集合 $F$，令 $N(F)$ 包含所有含有所选边的三元组，则
+\[
+\sum_{\{i,j\}\in F}p_{ij}^2
+\le\sum_{\{i,j,k\}\in N(F)}q_{ijk}^2.
+\]
+\end{bookresult}
+\[
+P_F\iota_zb=P_F\iota_zP_{N(F)}b.
+\]
+\note{每个集合计一次。坐标局部性说明先丢掉不相关三元组仍能恢复所选边。投影和收缩均不增长度。空集合及零子式也包括。已有私有证明与公开接口的区别见来源章。}
+\end{frame}
+% Manuscript: Section 3, finite layers
+\begin{frame}{最大值来自“至少一条边”}
+\[
+0=t_0<t_1<\cdots<t_s,\quad F_\ell=\{ij:a_{ij}\ge t_\ell\}.
+\]
+\[
+a_{ij}=\sum_\ell(t_\ell-t_{\ell-1})\mathbf1_{ij\in F_\ell}.
+\]
+\[
+\{i,j,k\}\in N(F_\ell)\iff M_{ijk}\ge t_\ell.
+\]
+每层应用坐标族比较，再乘非负层厚度相加。
+\note{本页先设权重非负。不同的正值作为层高；重复值共用一层，零不给新层。全为零时是空的层和。这是有限求和，不用极限。}
+\end{frame}
+% Manuscript: Theorem 1, Section 3 signed shift
+\begin{frame}{负权重：等质量消去}
+\begin{bookresult}{signed-minors}
+$n\ge3$，$x,y,z\in\mathbb R^n$，$\|z\|=1$，$z\perp x,y$。任意实数对称非对角权重满足 $E(a)\le U(a)$。
+\end{bookresult}
+\[
+m=\min a_{ij},\quad a'=a-m,\quad
+\sum p_{ij}^2=\sum q_{ijk}^2=M.
+\]
+\[
+E(a')=E(a)-mM,\quad U(a')=U(a)-mM.
+\]
+\note{不要求 $x,y$ 归一化、互相垂直或线性无关。比较非负权重 $a'$ 后，消去同一项 $mM$。不能直接删掉非负性而不解释此消去。}
+\end{frame}
+% Manuscript: Corollary 3, Section 3
+\begin{frame}{复数必须保留共轭}
+\begin{bookresult}{complex-minors}
+$n\ge3$，$x,y,z\in\mathbb C^n$，$\|z\|=1$，Hermitian 正交 $z\perp x,y$。任意实数对称非对角权重满足 $E(a)\le U(a)$，使用绝对值平方。
+\end{bookresult}
+\[
+p_{ij}=\sum_h\overline{z_h}q_{hij}.
+\]
+\small 正交分解、投影局部性和等质量平移不变。
+\note{约定内积第一变量共轭线性。收缩是外乘的伴随，所以必须共轭 $z_h$。只把平方换成绝对值平方还不够。}
+\end{frame}
+% Manuscript: Corollary 4, Section 3
+\begin{frame}{取负就给出下界}
+\[
+m_{ijk}=\min\{a_{ij},a_{ik},a_{jk}\},
+\quad L(a)=\sum_{i<j<k}m_{ijk}|q_{ijk}|^2.
+\]
+\begin{bookresult}{two-sided}
+在前述实数或复数、单位 $z\perp x,y$、$n\ge3$ 的假设下，对所有实数对称非对角权重，
+\[
+L(a)\le E(a)\le U(a).
+\]
+\end{bookresult}
+\[
+\max(-a)=-\min(a).
+\]
+\note{对 $-a$ 使用带符号上界，得 $-E(a)\le-L(a)$。乘以负一时反向。这个步骤依赖已证明的带符号版本。}
+\end{frame}
+\section{意义与归属}
+% Manuscript: Sections 1 and 5, prior work
+\begin{frame}{前人贡献与本报告重点}
+\begin{itemize}
+\item meler，2024：MathOverflow 469781 / MSE 4902019。
+\item Lyons，2003，定理 6.2 已蕴含正交单位比较。
+\item Miller--Bistroń，2025，引理 10、式 (27)：复数正交单位、非负权重双侧界。
+\item 其定理 2 已证明一般距离矩阵在 $p\ge2$ 时的距离结论。
+\end{itemize}
+\begin{block}{报告重点}
+收缩、局部性、有限分层、等质量消去与推广。
+\end{block}
+\note{这不是首次解决原不等式的主张。第四版的对应位置为引理 13、式 (34)、定理 1。一般距离猜想已被解决。}
+\end{frame}
+\appendix
+\section{技术附录}
+% Manuscript: Section 2, norm decomposition
+\begin{frame}{技术附录：收缩的范数}
+\[
+b=z\wedge c+d,
+\quad c\in\Lambda^{\ell-1}(z^\perp),\ d\in\Lambda^\ell(z^\perp).
+\]
+\[
+\iota_zb=c,\qquad\|b\|^2=\|c\|^2+\|d\|^2.
+\]
+若 $u\in\Lambda^k(z^\perp)$，则
+\[
+\iota_z(z\wedge u)=u,\qquad\|z\wedge u\|=\|u\|.
+\]
+无需可分解性：可以取多个外积之和。
+\note{包含 $z$ 和不包含 $z$ 的基坐标正交。这个分解说明所有外次数都有效，而不只来自一个平行多面体的形式。}
+\end{frame}
+% Manuscript: Corollary 5, Section 4
+\begin{frame}{任意外次数与多次提升}
+\small
+\begin{bookresult}{repeated-lifts}
+$\mathbb K=\mathbb R$ 或 $\mathbb C$，$k,r\ge1$，$k+r\le n$。$z_1,\ldots,z_r$ 正交归一，$V=\operatorname{span}(z_1,\ldots,z_r)^\perp$。任取 $u\in\Lambda^kV$，令 $b=z_r\wedge\cdots\wedge z_1\wedge u$。
+\[
+A_k=\sum_{|S|=k}a_S|u_S|^2,\quad a_S\in\mathbb R,
+\qquad L_{k,r}\le A_k\le U_{k,r}.
+\]
+$L_{k,r},U_{k,r}$ 对每个 $|T|=k+r$，取所有 $S\subset T$、$|S|=k$ 的权重最小、最大值，乘 $|b_T|^2$ 后求和。
+\end{bookresult}
+\note{任意形式包括不可分解形式。所有极值集合非空。$u=0$ 和 $k+r=n$ 均包含；原形式必须来自共同垂直空间。}
+\end{frame}
+% Manuscript: Corollary 5 proof
+\begin{frame}{每一步都保留垂直性}
+\[
+u_0=u,\qquad u_j=z_j\wedge u_{j-1}.
+\]
+$V$ 中的向量和 $z_1,\ldots,z_{j-1}$ 都垂直于 $z_j$，故
+\[
+u_{j-1}\in\Lambda^{k+j-1}(z_j^\perp).
+\]
+\[
+\alpha_j(T)=\max_{\substack{R\subset T\\|R|=k+j-1}}\alpha_{j-1}(R)
+=\max_{\substack{S\subset T\\|S|=k}}a_S.
+\]
+每个 $S$ 能延长为中间集合 $R$；最小值同理。
+\note{先逐步应用一阶比较，再对子集链归纳。子集传递性给一个方向，每个原子集可以延长给另一个方向。每一步范数相等。}
+\end{frame}
+% Manuscript: Corollary 6, Section 4
+\begin{frame}{常权重与锐系数}
+\begin{bookresult}{sharpness}
+在全部多次提升假设下，常数实权重给双侧等号，非负上界系数一不可统一减小。三维正交单位情形是初等加权平均界。
+\end{bookresult}
+\[
+a_S=c\Longrightarrow L_{k,r}=A_k=U_{k,r}=c\|u\|^2.
+\]
+\[
+u=e_1\wedge\cdots\wedge e_k,\quad z_j=e_{k+j},\quad c>0.
+\]
+\small 这是非零等号例子；没有完整等号分类。
+\note{常数可正可负。锐性需要正的非零例子，不能用全零数据证明。三维由唯一体积平方和面积平方总和均为一得到。}
+\end{frame}
+% Manuscript: Corollary 7, Section 5
+\begin{frame}{相关距离的指数边界}
+\small
+\[
+D_p([x],[y])=\left(\sum_{i<j}d_{ij}^p|p_{ij}|^2\right)^{1/p},\quad\|x\|=\|y\|=1.
+\]
+\begin{bookresult}{exponent}
+对每个 $n\ge2$、每个真正距离矩阵，所有 $0<p<2$ 均违反三角不等式。若非对角距离均为 $c>0$，则对每个 $p\ge2$，$D_p$ 是复射影空间上的距离。
+\end{bookresult}
+\small 一般距离矩阵的 $p\ge2$ 定理归于 Miller--Bistroń。
+\note{距离矩阵要求对称、对角为零、非对角严格为正并满足三角不等式。相差整体相位的单位向量代表同一个点。}
+\end{frame}
+% Manuscript: Corollary 7 proof
+\begin{frame}{小角度障碍与常距离}
+\small
+\[
+x=\cos\theta e_1+\sin\theta e_2,\quad y=\cos\theta e_1-\sin\theta e_2,
+\quad z=e_1.
+\]
+三角不等式将要求 $\cos\theta\le2^{p/2-1}$，但可取
+\[
+0<\theta\mathrel{<}\min\{\pi/4,\arccos(2^{p/2-1})\}\quad(p<2).
+\]
+若 $d_{ij}=c$（$i\ne j$），则
+\[
+D_p=c\left(\|xx^*-yy^*\|_{\rm HS}/\sqrt2\right)^{2/p}.
+\]
+用范数三角不等式和 $(a+b)^{2/p}\le a^{2/p}+b^{2/p}$（$p\ge2$）。
+\note{三个距离为 $d_{12}\sin^{2/p}(2\theta)$ 和两次 $d_{12}\sin^{2/p}\theta$。约去正因子得障碍。常距离公式由 Gram 恒等式给出；秩一投影保证相位不变与分离性。}
+\end{frame}
+% Manuscript: Bibliography; source and contribution links
+\begin{frame}{来源与进一步贡献}
+\footnotesize
+\begin{itemize}
+\item 原文第 2 版：\href{https://doi.org/10.5281/zenodo.23931738}{10.5281/zenodo.23931738}。
+\item Lyons：\href{https://doi.org/10.1007/s10240-003-0016-0}{Determinantal probability measures}，定理 6.2。
+\item Miller--Bistroń：\href{https://arxiv.org/abs/2509.14727v1}{arXiv:2509.14727v1}；\href{https://arxiv.org/abs/2509.14727v4}{v4}，引理 13、定理 1。
+\item \href{https://github.com/the-omega-institute/trureturing-requests/issues/121}{共享请求：任意外次数与多次提升}。
+\end{itemize}
+\normalsize 完整证明与其他请求见技术章节、来源与贡献指南。
+\note{贡献以精确陈述为起点。共享请求不是平台验证回执，也不代表新的数学猜想。}
+\end{frame}
+% Manuscript: Exact evidence ledger
+\FormalVerification
+\end{document}

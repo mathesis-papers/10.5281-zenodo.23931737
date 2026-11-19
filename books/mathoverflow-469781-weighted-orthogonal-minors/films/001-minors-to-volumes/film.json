@@ -1,0 +1,29 @@
+{
+  "duration": "2:26",
+  "id": "001-minors-to-volumes",
+  "lean": [
+    "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors"
+  ],
+  "narration": {
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "language": "en",
+    "voice": "af_heart"
+  },
+  "outputs": {
+    "cover": "mathoverflow-469781-weighted-orthogonal-minors_001_cover.jpg",
+    "narrated_720p": "mathoverflow-469781-weighted-orthogonal-minors_001_720p_narrated.mp4"
+  },
+  "publication_basis": "pinned",
+  "released": "2026-11-15",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "subject": "https://github.com/the-omega-institute/trureturing",
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "summary": "A focused explanation of coordinate areas, local contraction, finite price layers and equal-mass cancellation. The formal scene states only the positive real orthonormal theorem.",
+  "summary_zh": "从坐标面积、局部收缩到价格分层与等质量消去。形式证据场景只陈述实数正交单位、严格正权重的原定理。",
+  "title": "From areas to volumes",
+  "title_zh": "从面积到体积"
+}
