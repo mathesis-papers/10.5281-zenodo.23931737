@@ -2,14 +2,14 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
-  "pinned_at": "2026-11-08T12:32:04Z",
+  "commit": "b05ceb497bd134559c3c0f84d925c1643f7c65cb",
+  "pinned_at": "2026-11-24T06:46:56Z",
   "declarations": {
     "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors.weighted_minors": {
       "module": "D5/S3/Geometry/ProbabilityTransport/WeightedProjectionMinors",
       "name": "AlternatingArrayContraction.weighted_minors",
       "kind": "theorem",
-      "statement_id": "sha256:2a5371211d60948f67762038f579de1a44ae06c1d6fdfb4dfd9d09a66ee9508b",
+      "statement_id": "sha256:4d2d46921dee412d77a089e488bdd16b6bbaa23afe999c6b86a2686b5a06bc6b",
       "line": 593,
       "signature": "theorem weighted_minors {n : ℕ} (x y z : EuclideanSpace ℝ (Fin n)) (hON : Orthonormal ℝ ![x, y, z]) (A : Matrix (Fin n) (Fin n) ℝ) (hA : ∀ i j, A i j = A j i) (hpos : ∀ i j, 0 < A i j) : (∑ i, ∑ j, if i < j then A i j * Matrix.det !![x i, x j; y i, y j] ^ 2 else 0) ≤ ∑ i, ∑ j, ∑ k, if i < j ∧ j < k then max (A i j) (max (A i k) (A j k)) * Matrix.det !![x i, x j, x k; y i, y j, y k; z i, z j, z k] ^ 2 else 0"
     }
